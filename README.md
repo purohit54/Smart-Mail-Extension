@@ -47,25 +47,39 @@ Smart Mail Assistant is an AI-powered email assistant that connects to a Gmail i
                       |
                       | IMAP
                       v
-              +---------------+
-              | Email Fetcher |
-              +---------------+
+              +---------------------+
+              |   Chrome Extension  |
+              |     content.js      |
+              +---------------------+
                       |
+                      | Extract mail data
                       v
-              +---------------+
-              | Email Parser  |
-              +---------------+
+              +---------------------+
+              |     Background.js   |
+              +---------------------+
                       |
+                      | API Request
                       v
-              +---------------+
-              |   Qwen LLM    |
-              |   (Ollama)     |
-              +---------------+
+              +---------------------+
+              |    Backend API      |
+              +---------------------+
+                       |
+                       v
+              +----------------------+
+              |    Email Fetcher     |
+              |   / Email Parser     |
+              +----------------------+
                    |       |
                    |       |
-                Summary  Priority
-                   |       |
-                   +---+---+
+              +----------------------+
+              |    Qwen LLM          |
+              |       Ollama         |
+              +----------------------+
+                        |
+                        v
+              +----------------------+
+              |       Summary        |
+              +----------------------+
                        |
                        v
                 +-------------+
@@ -73,13 +87,6 @@ Smart Mail Assistant is an AI-powered email assistant that connects to a Gmail i
                 |   Database  |
                 +-------------+
 
-                      |
-                      v
-
-               Chrome Extension
-                      |
-                      v
-                 Gmail UI
 ```
 
 ## Project Workflow
