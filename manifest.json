@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "Gmail Email Extractor",
+  "version": "1.0",
+  "description": "Extract information from the currently opened Gmail email",
+  "permissions": [
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://mail.google.com/*"
+  ],
+  "background": {
+    "service_worker": "js/background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://mail.google.com/*"],
+      "js": ["js/content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
